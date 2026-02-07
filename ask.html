@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="ask-style.css" />
+    <title>Valentine Letter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Canvas for audio-reactive wave background -->
+    <canvas id="waveCanvas"></canvas>
+
+    <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
+    <!-- Envelope Screen -->
+    <div id="envelope-container">
+      <img src="ask-assets/envelope.png" alt="Envelope" id="envelope" />
+      <p>💙 Letter for You 💙</p>
+    </div>
+
+    <!-- Letter Screen -->
+    <div id="letter-container">
+      <div class="letter-window">
+        <button id="closeBtn" onclick="window.location.href='index.html'" title="Go back">✕</button>
+        <h1 id="letter-title">Will you be my Valentine?</h1>
+
+        <img src="ask-assets/cat_heart.gif" class="cat" id="letter-cat" />
+
+        <div class="buttons" id="letter-buttons">
+          <img src="ask-assets/yes.png" class="btn yes-btn" alt="Yes" />
+
+          <div class="no-wrapper">
+            <img src="ask-assets/no.png" class="btn no-btn" alt="No" />
+          </div>
+        </div>
+
+        <p id="final-text" class="final-text" style="display: none">
+          <strong>Valentine Date:</strong> Meow Restaurant at 7pm. Dress fancy!
+        </p>
+      </div>
+    </div>
+    <script src="ask-script.js"></script>
+  </body>
+</html>

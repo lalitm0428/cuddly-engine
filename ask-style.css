@@ -1,0 +1,228 @@
+/* ═══ ASK SECTION STYLES (scoped to #ask-section) ═══ */
+
+#ask-section {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #b3d9ff;
+    font-family: "Pixelify Sans", sans-serif;
+    overflow: hidden;
+    z-index: 100;
+}
+
+/* Full-screen wave canvas */
+#waveCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Floating hearts background */
+#ask-section::before {
+    content: "💙 🤍 💙 🩵 💎 🤍 💙 🩵 💙 🤍 💎 💙 🩵 🤍 💙";
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    font-size: 28px;
+    word-spacing: 60px;
+    line-height: 80px;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatHearts 20s linear infinite;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-80px); }
+}
+
+/* Envelope Screen */
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#envelope-container p {
+    color: #1a5276;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#envelope {
+    width: 200px;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+    filter: hue-rotate(200deg) saturate(0.8) brightness(1.1);
+    drop-shadow: 0 4px 15px rgba(137, 196, 244, 0.5);
+}
+
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.letter-window {
+    position: relative;
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 3/2;
+    padding: 20px 20px 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("ask-assets/window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    gap: 1px;
+    padding-top: 180px;
+    filter: hue-rotate(200deg) saturate(0.7) brightness(1.05);
+
+    transform: scale(1.2);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Close / X button */
+#closeBtn {
+    position: absolute;
+    top: 72px;
+    right: 58px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(26, 82, 118, 0.15);
+    color: #1a5276;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s, transform 0.2s;
+    filter: hue-rotate(-200deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+}
+
+#closeBtn:hover {
+    background: rgba(26, 82, 118, 0.35);
+    transform: scale(1.15);
+}
+
+#ask-section h1 {
+    font-size: 30px;
+    margin: 0;
+    color: #1a5276;
+}
+
+#ask-section p {
+    font-size: 40px;
+    color: #2471a3;
+}
+
+/* Cat */
+.cat {
+    width: 250px;
+    margin: 10px 0;
+    transition: width 0.4s ease;
+    /* undo parent hue-rotate so cat looks natural */
+    filter: hue-rotate(-200deg) saturate(1.4) brightness(0.95);
+}
+
+.letter-window.final .cat {
+    width: 180px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+.no-wrapper {
+    position: relative;
+}
+
+.btn {
+    width: 120px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn,
+.no-btn {
+    width: 120px;
+    height: auto;
+    display: inline-block;
+}
+
+.yes-btn {
+    position: relative;
+    z-index: 2;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    filter: hue-rotate(-200deg) brightness(1.1) drop-shadow(0 0 8px rgba(137, 196, 244, 0.8));
+}
+
+.no-btn {
+    z-index: 1;
+    position: relative;
+    transition: transform 0.15s ease;
+    cursor: default;
+}
+
+.final-text {
+    font-size: 22px;
+    line-height: 1.4;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(200, 230, 255, 0.6);
+    border: 2px solid rgba(137, 196, 244, 0.4);
+    border-radius: 12px;
+    color: #1a5276;
+    /* undo parent filter for clean text */
+    filter: hue-rotate(-200deg);
+}

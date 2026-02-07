@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml" />
+    <title>Happy Valentine's Day</title>
+    <link rel="stylesheet" href="public/style.css">
+    <link rel="stylesheet" href="ask-style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Click overlay to start audio (browsers require user gesture) -->
+    <div id="startOverlay">
+      <div class="start-content">
+        <div class="start-heart">💙</div>
+        <p>Tap anywhere to begin</p>
+      </div>
+    </div>
+
+    <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
+    <!-- ═══ STARFIELD SECTION ═══ -->
+    <div id="starfield-section">
+      <canvas id="starfield"></canvas>
+      <button id="valentinesButton">Click Me! ❤</button>
+    </div>
+
+    <!-- ═══ ASK SECTION (hidden initially) ═══ -->
+    <div id="ask-section" style="display: none;">
+      <canvas id="waveCanvas"></canvas>
+
+      <!-- Envelope Screen -->
+      <div id="envelope-container">
+        <img src="ask-assets/envelope.png" alt="Envelope" id="envelope" />
+        <p>💙 Letter for You 💙</p>
+      </div>
+
+      <!-- Letter Screen -->
+      <div id="letter-container">
+        <div class="letter-window">
+          <button id="closeBtn" title="Go back">✕</button>
+          <h1 id="letter-title">Will you be my Valentine?</h1>
+
+          <img src="ask-assets/cat_heart.gif" class="cat" id="letter-cat" />
+
+          <div class="buttons" id="letter-buttons">
+            <img src="ask-assets/yes.png" class="btn yes-btn" alt="Yes" />
+
+            <div class="no-wrapper">
+              <img src="ask-assets/no.png" class="btn no-btn" alt="No" />
+            </div>
+          </div>
+
+          <p id="final-text" class="final-text" style="display: none">
+            <strong>Valentine Date:</strong> Naru Noodle Bar at 7pm. Dress fancy!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
